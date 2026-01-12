@@ -13,7 +13,7 @@ export default function PostJob() {
   const [profileLoading, setProfileLoading] = useState(true);
   const [location, setLocation] = useState("");
 
-  // ✅ new fields for filtering
+  // new fields for filtering
   const [type, setType] = useState("Full-time");
   const [category, setCategory] = useState("Software Development");
 
@@ -71,19 +71,19 @@ export default function PostJob() {
         title,
         company,
         location,
-        type,       // ✅
-        category,   // ✅
+        type,       
+        category,  
         salary,
         desc,
         createdBy: user.uid,
         createdAt: serverTimestamp(),
       });
 
-      alert("✅ Job posted successfully!");
+      alert("Job posted successfully!");
       navigate("/jobs");
     } catch (err) {
       console.log(err);
-      alert("❌ Error posting job");
+      alert("Error posting job");
     } finally {
       setLoading(false);
     }
@@ -120,7 +120,7 @@ export default function PostJob() {
           onChange={(e) => setLocation(e.target.value)}
         />
 
-        {/* ✅ Job Type */}
+        {/*Job Type */}
         <select
           className="w-full p-2 mb-3 border rounded"
           value={type}
@@ -132,7 +132,7 @@ export default function PostJob() {
           <option value="Contract">Contract</option>
         </select>
 
-        {/* ✅ Category */}
+        {/*Category */}
         <select
           className="w-full p-2 mb-3 border rounded"
           value={category}

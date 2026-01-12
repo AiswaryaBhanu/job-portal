@@ -10,7 +10,7 @@ export default function JobDetails() {
   const [loading, setLoading] = useState(true);
   const { user, role } = useAuth();
 
-  // ✅ fetch single job from firestore using job id
+  // fetch single job from firestore using job id
   useEffect(() => {
     const fetchJob = async () => {
       try {
@@ -70,7 +70,7 @@ export default function JobDetails() {
 
         <p className="mt-2 text-gray-700 leading-relaxed">{job.desc}</p>
       </div>
-      {/* ✅ Easy Apply UI */}
+      {/* Easy Apply UI */}
       <div className="mt-8">
           {user && role === "jobseeker" ? (
             <button className="px-6 py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700">

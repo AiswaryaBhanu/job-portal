@@ -32,7 +32,7 @@ function SignupPage() {
     e.preventDefault();
     setError("");
 
-    // ✅ validations
+    // validations
     if (!role) {
       setError("Please choose Recruiter or Job Seeker");
       return;
@@ -53,7 +53,7 @@ function SignupPage() {
       return;
     }
 
-    // ✅ role-based validation
+    //role-based validation
     if (role === "jobseeker") {
       if (!university || !cgpa) {
         setError("Job Seeker must fill university, cgpa, resume link");
@@ -79,11 +79,11 @@ function SignupPage() {
     try {
       setLoading(true);
 
-      // ✅ create auth user
+      //create auth user
       const res = await createUserWithEmailAndPassword(auth, email, password);
       const user = res.user;
 
-      // ✅ store role-based profile in Firestore
+      //store role-based profile in Firestore
       await setDoc(doc(db, "users", user.uid), {
         role, // "jobseeker" or "recruiter"
         email: user.email,
@@ -102,7 +102,7 @@ function SignupPage() {
         createdAt: serverTimestamp(),
       });
 
-      alert("✅ Account created successfully!");
+      alert("Account created successfully!");
       navigate("/");
     } catch (err) {
       setError(err.message);
@@ -119,7 +119,7 @@ function SignupPage() {
       >
         <h2 className="text-2xl font-semibold mb-6 text-center">Sign Up</h2>
 
-        {/* ✅ Role selection */}
+        {/*Role selection */}
         <label className="text-sm font-medium">Signup as</label>
         <select
           value={role}
@@ -131,7 +131,7 @@ function SignupPage() {
           <option value="recruiter">Recruiter</option>
         </select>
 
-        {/* ✅ common fields */}
+        {/*common fields */}
         <input
           type="text"
           placeholder="Full Name"
@@ -172,7 +172,7 @@ function SignupPage() {
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
 
-        {/* ✅ job seeker fields */}
+        {/*job seeker fields */}
         {role === "jobseeker" && (
           <>
             <input
@@ -205,7 +205,7 @@ function SignupPage() {
           </>
         )}
 
-        {/* ✅ recruiter fields */}
+        {/*recruiter fields */}
         {role === "recruiter" && (
           <>
             <input

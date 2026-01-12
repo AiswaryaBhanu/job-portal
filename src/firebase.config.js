@@ -1,9 +1,9 @@
-// Import the functions you need from the SDKs you need
+// Import the functions needed from the SDKs 
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-// Your Firebase configuration
+//Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCTYkx0jDPT6vzokKjcRVZ0BbwbfyAd4zA",
   authDomain: "job-portal-ff695.firebaseapp.com",
@@ -16,6 +16,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Export Auth and Firestore so you can use them in your app
+// Export Auth and Firestore to use them in the app
 export const auth = getAuth(app);
 export const db = getFirestore(app);

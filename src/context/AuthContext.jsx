@@ -30,7 +30,6 @@ export function AuthProvider({ children }) {
         else setRole(null);
       } catch (err) {
         console.log("❌ Error fetching role:", err.message);
-        // don't crash app
         setRole(null);
       }
 

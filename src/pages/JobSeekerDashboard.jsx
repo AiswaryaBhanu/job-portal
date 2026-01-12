@@ -64,10 +64,10 @@ export default function JobSeekerDashboard() {
       await deleteDoc(doc(db, "applications", appId));
 
       setApps((prev) => prev.filter((a) => a.jobId !== jobId));
-      alert("✅ Withdrawn successfully");
+      alert("Withdrawn successfully");
     } catch (err) {
       console.log(err);
-      alert("❌ Failed to withdraw");
+      alert("Failed to withdraw");
     }
   };
 

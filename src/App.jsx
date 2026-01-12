@@ -37,7 +37,7 @@ function App() {
         <Route path="/jobseeker-profile" element={<JobSeekerProfile />} />
         <Route path="/jobseeker-dashboard" element={<JobSeekerDashboard />} />
 
-        {/* ✅ Recruiter Only */}
+        {/*Recruiter Only */}
         <Route
           path="/post-job"
           element={

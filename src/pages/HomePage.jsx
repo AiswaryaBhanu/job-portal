@@ -25,7 +25,6 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center p-6">
-      {/* Hero Section */}
       <div className="max-w-4xl text-center mt-20">
         <h1 className="text-5xl font-bold mb-4">Find Your Dream Job</h1>
         <p className="text-lg text-gray-600 mb-8">
@@ -33,7 +32,7 @@ export default function HomePage() {
         </p>
 
         <div className="flex justify-center gap-4">
-        {/* ✅ Browse Jobs only for JobSeekers */}
+        {/*Browse Jobs only for JobSeekers */}
         {user && role === "jobseeker" && (
           <button
             className="px-6 py-3 bg-blue-600 text-white rounded-xl text-lg shadow-md hover:bg-blue-700 transition"
@@ -43,7 +42,7 @@ export default function HomePage() {
           </button>
         )}
 
-        {/* ✅ Post Job only for Recruiters */}
+        {/*Post Job only for Recruiters */}
         {user && role === "recruiter" && (
           <button
             className="px-6 py-3 bg-gray-200 text-gray-800 rounded-xl text-lg shadow-md hover:bg-gray-300 transition"
@@ -53,7 +52,7 @@ export default function HomePage() {
           </button>
         )}
 
-        {/* ✅ if not logged in show both options */}
+        {/* if not logged in show both options */}
         {!user && (
           <>
             <button
@@ -73,7 +72,6 @@ export default function HomePage() {
         )}
       </div>
 
-        {/* Optional small hint */}
         {user && role === "jobseeker" && (
           <p className="mt-4 text-sm text-gray-500">
             You are logged in as a <b>Job Seeker</b>. Recruiters can post jobs.

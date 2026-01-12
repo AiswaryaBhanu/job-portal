@@ -24,7 +24,7 @@ export default function Navbar() {
       <ul className="nav-links">
         <li><Link to="/">Home</Link></li>
 
-        {/* ✅ show Jobs ONLY to job seekers */}
+        {/* shows Jobs ONLY to job seekers */}
         {user && role === "jobseeker" && (
           <>
             <li><Link to="/jobs">Browse Jobs</Link></li>
@@ -33,7 +33,7 @@ export default function Navbar() {
           </>
         )}
 
-        {/* ✅ show Recruiter features ONLY to recruiters */}
+        {/* shows Recruiter features ONLY to recruiters */}
         {user && role === "recruiter" && (
           <>
             <li><Link to="/post-job">Post Job</Link></li>
@@ -42,7 +42,7 @@ export default function Navbar() {
           </>
         )}
 
-        {/* ✅ if NOT logged in */}
+        {/*if NOT logged in */}
         {!user && (
           <>
             <li><Link to="/login">Login</Link></li>
@@ -50,7 +50,7 @@ export default function Navbar() {
           </>
         )}
 
-        {/* ✅ logout if logged in */}
+        {/* logout if logged in */}
         {user && (
           <li>
             <button

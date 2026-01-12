@@ -52,10 +52,10 @@ export default function RecruiterDashboard() {
     try {
       await deleteDoc(doc(db, "jobs", jobId));
       setJobs((prev) => prev.filter((j) => j.id !== jobId));
-      alert("✅ Job deleted");
+      alert("Job deleted");
     } catch (err) {
       console.log(err);
-      alert("❌ Failed to delete");
+      alert("Failed to delete");
     }
   };
 

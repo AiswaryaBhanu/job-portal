@@ -18,7 +18,7 @@ export default function JobsPage() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // ✅ filters
+  // filters
   const [search, setSearch] = useState("");
   const [location, setLocation] = useState("");
   const [type, setType] = useState("all");
@@ -27,17 +27,17 @@ export default function JobsPage() {
   const navigate = useNavigate();
   const { user, role } = useAuth();
 
-  // ✅ store applied jobIds
+  // store applied jobIds
   const [appliedJobs, setAppliedJobs] = useState(new Set());
 
-  // ✅ read category from URL
+  // read category from URL
   const [searchParams] = useSearchParams();
   useEffect(() => {
     const catFromUrl = searchParams.get("category");
     if (catFromUrl) setCategory(catFromUrl);
   }, [searchParams]);
 
-  // ✅ fetch applied jobs for jobseeker (persistent)
+  // fetch applied jobs for jobseeker
   useEffect(() => {
     const fetchAppliedJobs = async () => {
       if (!user || role !== "jobseeker") return;
@@ -64,7 +64,7 @@ export default function JobsPage() {
     fetchAppliedJobs();
   }, [user, role]);
 
-  // ✅ fetch jobs
+  // fetch jobs
   useEffect(() => {
     const fetchJobs = async () => {
       try {
@@ -88,7 +88,7 @@ export default function JobsPage() {
     fetchJobs();
   }, []);
 
-  // ✅ Easy Apply
+  // Easy Apply
   const handleEasyApply = async (e, job) => {
     e.stopPropagation();
 
@@ -117,16 +117,16 @@ export default function JobsPage() {
         appliedAt: serverTimestamp(),
       });
 
-      alert("✅ Applied successfully!");
+      alert("Applied successfully!");
 
       setAppliedJobs((prev) => new Set([...prev, job.id]));
     } catch (err) {
       console.log(err);
-      alert("❌ Failed to apply");
+      alert("Failed to apply");
     }
   };
 
-  // ✅ Withdraw application
+  //Withdraw application
   const handleWithdraw = async (e, job) => {
     e.stopPropagation();
 
@@ -136,7 +136,7 @@ export default function JobsPage() {
       const appId = `${job.id}_${user.uid}`;
       await deleteDoc(doc(db, "applications", appId));
 
-      alert("✅ Application withdrawn");
+      alert("Application withdrawn");
 
       setAppliedJobs((prev) => {
         const newSet = new Set(prev);
@@ -145,11 +145,11 @@ export default function JobsPage() {
       });
     } catch (err) {
       console.log(err);
-      alert("❌ Failed to withdraw");
+      alert("Failed to withdraw");
     }
   };
 
-  // ✅ Recruiter delete job (only own jobs shown button)
+  // Recruiter delete job (only own jobs shown button)
   const handleDeleteJob = async (e, jobId) => {
     e.stopPropagation();
 
@@ -166,14 +166,14 @@ export default function JobsPage() {
       // remove job from UI immediately
       setJobs((prev) => prev.filter((j) => j.id !== jobId));
 
-      alert("✅ Job deleted successfully");
+      alert("Job deleted successfully");
     } catch (err) {
       console.log(err);
-      alert("❌ Failed to delete job");
+      alert("Failed to delete job");
     }
   };
 
-  // ✅ filters
+  // filters
   const filteredJobs = useMemo(() => {
     return jobs.filter((job) => {
       const jobTitle = (job.title || "").toLowerCase();
@@ -291,7 +291,7 @@ export default function JobsPage() {
                   <p className="mt-3 text-gray-600 line-clamp-2">{job.desc}</p>
                 </div>
 
-                {/* ✅ BOTTOM */}
+                {/* BOTTOM */}
                 <div className="mt-4 flex justify-between items-center">
                   {/* recruiter delete */}
                   {user &&

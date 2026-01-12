@@ -21,11 +21,11 @@ function LoginPage() {
     try {
       setLoading(true);
       await signInWithEmailAndPassword(auth, email, password);
-      alert("✅ Login successful");
+      alert("Login successful");
       navigate("/");
     } catch (err) {
       console.log(err);
-      alert("❌ Invalid email or password");
+      alert("Invalid email or password");
     } finally {
       setLoading(false);
     }

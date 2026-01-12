@@ -74,10 +74,10 @@ export default function JobSeekerProfile() {
         resumeLink,
       });
 
-      alert("✅ Profile updated!");
+      alert("Profile updated!");
     } catch (err) {
       console.log(err);
-      alert("❌ Failed to update profile");
+      alert("Failed to update profile");
     } finally {
       setSaving(false);
     }
